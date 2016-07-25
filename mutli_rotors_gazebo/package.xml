@@ -1,0 +1,23 @@
+<package>
+  <name>multi_rotors_gazebo</name>
+  <version>0.0.1</version>
+  <description>Multi-rotors fault tolerance control - gazebo simulation environments</description>
+
+  <maintainer email="tarek.taha@kustar.ac.ae">Tarek Taha</maintainer>
+
+  <author>Tarek Taha</author>
+  <author>Fatima Khoury</author>
+
+  <license>LGPLv3</license>
+
+  <url type="website">https://github.com/kuri-kustar/multi_rotors_ftc</url>
+  <url type="bugtracker">https://github.com/kuri-kustar/multi_rotors_ftc/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!--run_depend></run_depend-->
+
+  <export>
+    <metapackage/>
+  </export>
+</package> 
