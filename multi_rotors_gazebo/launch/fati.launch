@@ -45,6 +45,15 @@
    respawn="false" output="screen">
   </node>
 
+    <group ns="ardrone">
 
+    <node name="lee_position_controller_node" pkg="rotors_ftc_control" type="lee_position_controller_node" output="screen">
+      <rosparam command="load" file="$(find multi_rotors_ftc_gazebo)/resource/lee_controller_firefly.yaml" />
+      <rosparam command="load" file="$(find multi_rotors_ftc_gazebo)/resource/firefly.yaml" />
+      <remap from="odometry" to="odometry_sensor1/odometry" />
+    </node>
+    <node name="hovering_example" pkg="multi_rotors_ftc_gazebo" type="hovering_example" output="screen"/>
+  </group>
+  
 
 </launch>
