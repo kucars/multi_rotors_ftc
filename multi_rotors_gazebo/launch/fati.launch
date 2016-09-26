@@ -16,7 +16,7 @@
 
 
   <arg name="name" default="ardrone"/>
-  <arg name="model" default="$(find multi_rotors_ftc_description)/urdf/fati_ardrone_base.xacro"/>
+  <arg name="model" default="$(find multi_rotors_ftc_description)/urdf/ardrone_mbzirc_sensors.gazebo"/>
   <arg name="tf_prefix" default="$(optenv ROS_NAMESPACE)"/>
   <arg name="x" default="0.0"/>
   <arg name="y" default="0.0"/>
@@ -48,8 +48,8 @@
     <group ns="ardrone">
 
     <node name="lee_position_controller_node" pkg="rotors_ftc_control" type="lee_position_controller_node" output="screen">
-      <rosparam command="load" file="$(find multi_rotors_ftc_gazebo)/resource/lee_controller_firefly.yaml" />
-      <rosparam command="load" file="$(find multi_rotors_ftc_gazebo)/resource/firefly.yaml" />
+      <rosparam command="load" file="$(find multi_rotors_ftc_gazebo)/resource/lee_controller_fati.yaml" />
+      <rosparam command="load" file="$(find multi_rotors_ftc_gazebo)/resource/fati_firefly.yaml" />
       <remap from="odometry" to="odometry_sensor1/odometry" />
     </node>
     <node name="hovering_example" pkg="multi_rotors_ftc_gazebo" type="hovering_example" output="screen"/>
