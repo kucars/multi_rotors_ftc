@@ -1,5 +1,5 @@
 <package>
-  <name>multi_rotors_gazebo</name>
+  <name>multi_rotors_ftc_gazebo</name>
   <version>0.0.1</version>
   <description>Multi-rotors fault tolerance control - gazebo simulation environments</description>
 
