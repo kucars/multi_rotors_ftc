@@ -383,7 +383,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://rotors_description/meshes/vi_sensor.dae" scale="1 1 1" />
+          <mesh filename="package://multi_rotors_ftc_description/meshes/vi_sensor.dae" scale="1 1 1" />
         </geometry>
       </visual>
 
@@ -583,7 +583,7 @@
       <visual>
         <origin xyz="-0.015 0.0035 0.004" rpy="${-pi/2} -${pi} ${-pi/2}"/>
         <geometry>
-          <mesh filename="package://rotors_description/meshes/asus_xtion_pro_live.dae" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://multi_rotors_ftc_description/meshes/asus_xtion_pro_live.dae" scale="0.001 0.001 0.001"/>
         </geometry>
       </visual>
       <collision>
@@ -707,13 +707,13 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://rotors_description/meshes/hokuyo.dae"/>
+          <mesh filename="package://multi_rotors_ftc_description/meshes/hokuyo.dae"/>
         </geometry>
       </visual>
       <collision>
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<geometry>
-	  <mesh filename="package://rotors_description/meshes/hokuyo.dae"/>
+	  <mesh filename="package://multi_rotors_ftc_description/meshes/hokuyo.dae"/>
 	</geometry>
       </collision>
     </link>

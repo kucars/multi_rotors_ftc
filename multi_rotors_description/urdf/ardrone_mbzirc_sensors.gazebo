@@ -22,8 +22,8 @@
 <robot name="$(arg name)" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:property name="pi" value="3.14159265359" />
   <!-- Instantiate firefly with a generic odometry sensor. -->
-  <xacro:include filename="$(find rotors_description)/urdf/ardrone_generic_odometry_sensor.gazebo" />
-  <xacro:include filename="$(find rotors_description)/urdf/component_snippets.xacro" />
+  <xacro:include filename="$(find multi_rotors_ftc_description)/urdf/ardrone_generic_odometry_sensor.gazebo" />
+  <xacro:include filename="$(find multi_rotors_ftc_description)/urdf/component_snippets.xacro" />
   
   <!--xacro:hokuyo_laser namespace="${namespace}" parent_link="base_link">
     <origin xyz="0.20 0.0 -0.00" rpy="0.0 ${M_PI/2} 0.0" />
@@ -41,7 +41,7 @@
   </xacro:sensor_asus_xtion_macro-->
 
   <!-- Downward facing camera -->
-  <xacro:include filename="$(find rotors_description)/urdf/generic_camera.urdf.xacro" />
+  <xacro:include filename="$(find multi_rotors_ftc_description)/urdf/generic_camera.urdf.xacro" />
   <xacro:generic_camera name="downward_cam" parent="base_link" ros_topic="camera/image" cam_info_topic="camera/camera_info" update_rate="20" res_x="640" res_y="480" image_format="R8G8B8" hfov="100">
     <origin xyz="0.0 0.0 -0.020" rpy="0 ${M_PI/2} 0"/>
   </xacro:generic_camera>

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
 <robot name="$(arg name)" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find rotors_description)/urdf/component_snippets.xacro" />
+  <xacro:include filename="$(find multi_rotors_ftc_description)/urdf/component_snippets.xacro" />
   <!-- Instantiate ardrone "mechanics" -->
-  <xacro:include filename="$(find rotors_description)/urdf/ardrone.xacro" />
+  <xacro:include filename="$(find multi_rotors_ftc_description)/urdf/ardrone.xacro" />
 
   <!-- Instantiate a controller. -->
   <xacro:controller_plugin_macro
