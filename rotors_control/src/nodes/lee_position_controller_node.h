@@ -52,7 +52,7 @@ class LeePositionControllerNode {
   LeePositionController lee_position_controller_;
 
   std::string namespace_;
-
+  ros::Time startTime;
   // subscribers
   ros::Subscriber cmd_trajectory_sub_;
   ros::Subscriber odometry_sub_;

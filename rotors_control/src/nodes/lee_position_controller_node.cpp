@@ -22,7 +22,7 @@
 
 #include "rotors_control/parameters_ros.h"
 
-ros::Time startTime;
+
 namespace rotors_control {
 
 LeePositionControllerNode::LeePositionControllerNode() {
@@ -38,6 +38,7 @@ LeePositionControllerNode::LeePositionControllerNode() {
 
   motor_velocity_reference_pub_ = nh.advertise<mav_msgs::CommandMotorSpeed>(
       kDefaultMotorSpeedTopic, 10);
+	startTime = ros::Time::now();
 }
 
 LeePositionControllerNode::~LeePositionControllerNode() { }
@@ -119,6 +120,7 @@ void LeePositionControllerNode::OdometryCallback(const nav_msgs::OdometryConstPt
         ref_rotor_velocities[i] = 0;
         std::cout<<"I am killing Motor: "<<i<<"\n";
     }
+    
     turning_velocities_msg->motor_speed.push_back(ref_rotor_velocities[i]);
   }
   turning_velocities_msg->header.stamp = odometry_msg->header.stamp;
@@ -130,8 +132,6 @@ void LeePositionControllerNode::OdometryCallback(const nav_msgs::OdometryConstPt
 
 int main(int argc, char** argv) {
   ros::init(argc, argv, "lee_position_controller_node");
-
-  startTime = ros::Time::now();
   rotors_control::LeePositionControllerNode lee_position_controller_node;
 
   ros::spin();
