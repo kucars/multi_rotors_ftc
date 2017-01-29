@@ -34,7 +34,7 @@ FTController::~FTController() {}
 
 void FTController::InitializeParameters()
 {
-  /*
+ 
   calculateAllocationMatrix(vehicle_parameters_.rotor_configuration_, &(controller_parameters_.allocation_matrix_));
   // To make the tuning independent of the inertia matrix we divide here.
   normalized_attitude_gain_ = controller_parameters_.attitude_gain_.transpose()
@@ -43,6 +43,7 @@ void FTController::InitializeParameters()
   normalized_angular_rate_gain_ = controller_parameters_.angular_rate_gain_.transpose()
       * vehicle_parameters_.inertia_.inverse();
 
+  // Me: typedef Matrix< double, 4, 4 >
   Eigen::Matrix4d I;
   I.setZero();
   I.block<3, 3>(0, 0) = vehicle_parameters_.inertia_;
@@ -54,7 +55,7 @@ void FTController::InitializeParameters()
       * (controller_parameters_.allocation_matrix_
       * controller_parameters_.allocation_matrix_.transpose()).inverse() * I;
   initialized_params_ = true;
-  */
+  
 }
 
 void FTController::CalculateRotorVelocities(Eigen::VectorXd* rotor_velocities) const 

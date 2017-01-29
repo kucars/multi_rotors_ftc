@@ -38,8 +38,8 @@ add_library(roll_pitch_yawrate_thrust_controller
 target_link_libraries(lee_position_controller ${catkin_LIBRARIES})
 add_dependencies(lee_position_controller ${catkin_EXPORTED_TARGETS})
 
-target_link_libraries(kuri_ftc ${catkin_LIBRARIES})
-add_dependencies(kuri_ftc ${catkin_EXPORTED_TARGETS})
+#target_link_libraries(kuri_ftc ${catkin_LIBRARIES})
+#add_dependencies(kuri_ftc ${catkin_EXPORTED_TARGETS})
 
 
 target_link_libraries(roll_pitch_yawrate_thrust_controller ${catkin_LIBRARIES})
@@ -47,13 +47,11 @@ add_dependencies(roll_pitch_yawrate_thrust_controller ${catkin_EXPORTED_TARGETS}
 
 add_executable(lee_position_controller_node src/nodes/lee_position_controller_node.cpp)
 add_dependencies(lee_position_controller_node ${catkin_EXPORTED_TARGETS})
-target_link_libraries(lee_position_controller_node
-  lee_position_controller ${catkin_LIBRARIES})
+target_link_libraries(lee_position_controller_node  lee_position_controller ${catkin_LIBRARIES})
 
-add_executable(kuri_ftc_node src/nodes/kuri_ftc_node.cpp)
-add_dependencies(kuri_ftc_node ${catkin_EXPORTED_TARGETS})
-target_link_libraries(kuri_ftc_node
-  lee_position_controller ${catkin_LIBRARIES})
+#add_executable(kuri_ftc_node src/nodes/kuri_ftc_node.cpp)
+#add_dependencies(kuri_ftc_node ${catkin_EXPORTED_TARGETS})
+#target_link_libraries(kuri_ftc_node lee_position_controller ${catkin_LIBRARIES})
   
 add_executable(roll_pitch_yawrate_thrust_controller_node
   src/nodes/roll_pitch_yawrate_thrust_controller_node.cpp)

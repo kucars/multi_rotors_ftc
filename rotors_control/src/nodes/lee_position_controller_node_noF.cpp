@@ -115,27 +115,26 @@ void LeePositionControllerNode::OdometryCallback(const nav_msgs::OdometryConstPt
   for (int i = 0; i < ref_rotor_velocities.size(); i++)
   {
 
-       
-    if (((i==1) || (i==3 ))&&  (ros::Time::now() - startTime) > ros::Duration(0.0))
+    /*
+    if (i==0 &&  (ros::Time::now() - startTime) > ros::Duration(10.0))
     {
         ref_rotor_velocities[i] = 0;
         std::cout<<"I am killing Motor: "<<i<<"\n";
     }
-/* 
+
     if (i==1 &&  (ros::Time::now() - startTime) > ros::Duration(10.0))
     {
         ref_rotor_velocities[i] = 0;
         std::cout<<"I am killing Motor: "<<i<<"\n";
-    } 
- 
-    
-    if (((i==0 )&&  (ros::Time::now() - startTime) > ros::Duration(10.1))
+    }  
+
+    if ((i==2 ) &&  (ros::Time::now() - startTime) > ros::Duration(10.0))
     {
-        ref_rotor_velocities[i] = ref_rotor_velocities[i]*1.3;
+        ref_rotor_velocities[i] = -ref_rotor_velocities[i];
         std::cout<<"I am doubling Motor: "<<i<<"\n";
     }  
-*/
-    
+    */
+
     std::cout<<"Motor: "<<i<<" velocity:"<<ref_rotor_velocities[i]<<"\n";
     turning_velocities_msg->motor_speed.push_back(ref_rotor_velocities[i]);
   }
