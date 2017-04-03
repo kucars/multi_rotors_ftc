@@ -59,7 +59,7 @@ int main(int argc, char** argv){
   while (ros::ok()) {
     nh.param<double>("wp_x", trajectory_msg.position.x, 0.0);
     nh.param<double>("wp_y", trajectory_msg.position.y, 0.0);
-    nh.param<double>("wp_z", trajectory_msg.position.z, 1.0);
+    nh.param<double>("wp_z", trajectory_msg.position.z, 3.0);
     ROS_INFO("Publishing waypoint on namespace %s: [%f, %f, %f].",
              nh.getNamespace().c_str(),
              trajectory_msg.position.x,

@@ -56,4 +56,18 @@
   </group>
   
 
+<!--
+  <node name="comm_pos_plot"
+        pkg="rqt_plot"
+        type="rqt_plot"
+        args="/ardrone/command/trajectory/position" />
+
+  <node name="Motor_speed_plot"
+        pkg="rqt_plot"
+        type="rqt_plot"
+        args="/ardrone/motor_speed/0 "/>
+
+-->
+  
+
 </launch>

@@ -112,24 +112,39 @@ void LeePositionControllerNode::OdometryCallback(const nav_msgs::OdometryConstPt
   mav_msgs::CommandMotorSpeedPtr turning_velocities_msg(new mav_msgs::CommandMotorSpeed);
 
   turning_velocities_msg->motor_speed.clear();
+
   for (int i = 0; i < ref_rotor_velocities.size(); i++)
   {
 
-       
-    if (((i==1) || (i==3 ))&&  (ros::Time::now() - startTime) > ros::Duration(0.0))
+
+    if (((i==1) || (i==3 ))&&  (ros::Time::now() - startTime) > ros::Duration(15.0))
     {
         ref_rotor_velocities[i] = 0;
         std::cout<<"I am killing Motor: "<<i<<"\n";
+        lee_position_controller_.controller_parameters_.position_gain_.x() = 0.5;//0.5;
+        lee_position_controller_.controller_parameters_.position_gain_.y() = 0.5;
+        lee_position_controller_.controller_parameters_.position_gain_.z() = 50;
+
+        lee_position_controller_.controller_parameters_.velocity_gain_.x() = 20;
+        lee_position_controller_.controller_parameters_.velocity_gain_.y() = 20;
+        lee_position_controller_.controller_parameters_.velocity_gain_.z() = 20;
+
+        lee_position_controller_.controller_parameters_.attitude_gain_.x() = 4;
+        lee_position_controller_.controller_parameters_.attitude_gain_.y() = 4.5;
+        //lee_position_controller_.controller_parameters_.attitude_gain_.z() = 0.3;
+
     }
-/* 
-    if (i==1 &&  (ros::Time::now() - startTime) > ros::Duration(10.0))
+
+
+/*
+    if (i==0 &&  (ros::Time::now() - startTime) > ros::Duration(10.1))
     {
         ref_rotor_velocities[i] = 0;
+        lee_position_controller_.controller_parameters_.position_gain_.z() = 20;
         std::cout<<"I am killing Motor: "<<i<<"\n";
     } 
  
-    
-    if (((i==0 )&&  (ros::Time::now() - startTime) > ros::Duration(10.1))
+    if ( (i==2) &&  (ros::Time::now() - startTime) > ros::Duration(10.1))
     {
         ref_rotor_velocities[i] = ref_rotor_velocities[i]*1.3;
         std::cout<<"I am doubling Motor: "<<i<<"\n";
